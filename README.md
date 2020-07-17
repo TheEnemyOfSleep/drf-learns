@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Developing Django on Repl.it
 
 - Fork this template to get started
@@ -41,3 +42,7 @@ We suggest bringing a database using an outside service.
 
 See Django documentation on how to setup a database: https://docs.djangoproject.com/en/3.0/intro/tutorial02/
 
+=======
+# drf-learns
+Simple training ground based on Django rest framework
+>>>>>>> f96ea471acf760d93e339255478c955eb9d6239a
