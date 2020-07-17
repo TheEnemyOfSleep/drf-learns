@@ -3,9 +3,15 @@
 import os
 import sys
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['*']
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+=======
+
+def main():
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'drfsite.settings')
+>>>>>>> f96ea471acf760d93e339255478c955eb9d6239a
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
