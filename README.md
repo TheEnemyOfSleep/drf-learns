@@ -42,7 +42,11 @@ We suggest bringing a database using an outside service.
 
 See Django documentation on how to setup a database: https://docs.djangoproject.com/en/3.0/intro/tutorial02/
 
-=======
+
 # drf-learns
 Simple training ground based on Django rest framework
->>>>>>> f96ea471acf760d93e339255478c955eb9d6239a
+
+Links for training:
+https://webdevblog.ru/razrabotka-na-osnove-testov-django-restful-api/
+https://stackoverflow.com/questions/47184777/how-to-login-a-user-during-a-unit-test-in-django-rest-framework/47184778
+https://stackoverflow.com/questions/23072730/django-rest-framework-how-to-test-viewset

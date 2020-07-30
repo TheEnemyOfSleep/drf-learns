@@ -5,7 +5,6 @@ from django.contrib.auth import get_user_model
 class UserManagersTests(TestCase):
     def test_case_user(self):
         User = get_user_model()
-        print(User)
         user = User.objects.create_user(
             username='example',
             email='example@user.com',
