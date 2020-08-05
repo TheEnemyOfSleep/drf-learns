@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 from __future__ import annotations
 from django.contrib.auth import get_user_model, get_user
 from rest_framework.test import APITestCase
 from ..views import NoteModelViewSet
 from rest_framework.response import Response
+=======
+from django.contrib.auth import get_user_model, get_user
+from rest_framework.test import APITestCase
+from ..views import NoteModelViewSet
+>>>>>>> 520291b2b15db9c48bf562f464a1c1b8761d8a3b
 import json
 
 
@@ -16,7 +22,11 @@ class NotesTests(APITestCase):
     author: "http://testserver/api/v1/auth/users/1/"
     '''
 
+<<<<<<< HEAD
     def setUp(self) -> None:
+=======
+    def setUp(self):
+>>>>>>> 520291b2b15db9c48bf562f464a1c1b8761d8a3b
         User = get_user_model()
         self.user, created_user = User.objects.get_or_create(
             username='testusername',
@@ -33,7 +43,11 @@ class NotesTests(APITestCase):
         self.second_user.save()
         self.view = NoteModelViewSet.as_view(actions={'get': 'retrieve'})
     
+<<<<<<< HEAD
     def check_data(self, request: Response, url, title, body, author, id) -> None:
+=======
+    def check_data(self, request, url, title, body, author, id):
+>>>>>>> 520291b2b15db9c48bf562f464a1c1b8761d8a3b
         response_data = json.loads(request.content)
         self.assertEqual(
             response_data[id]['url'],
@@ -52,12 +66,17 @@ class NotesTests(APITestCase):
             author
         )
     
+<<<<<<< HEAD
     def check_post_request(self, url: str, title: str, body: str) -> None:
+=======
+    def check_post_request(self, url, title, body):
+>>>>>>> 520291b2b15db9c48bf562f464a1c1b8761d8a3b
         request = self.client.post(url, {
             'title': title,
             'body': body
         }, format='json')
         self.assertEqual(request.status_code, 201)
+<<<<<<< HEAD
 
     def check_put_patch_request(self, url: str, method: str, **kwargs) -> None:
         if method == 'put':
@@ -73,11 +92,19 @@ class NotesTests(APITestCase):
         self.assertEqual(request.status_code, 204)
     
     def check_get_request(self, url: str) -> Response:
+=======
+    
+    def check_get_request(self, url):
+>>>>>>> 520291b2b15db9c48bf562f464a1c1b8761d8a3b
         request = self.client.get(url)
         self.assertEqual(request.status_code, 200)
         return request
 
+<<<<<<< HEAD
     def loging_user_test(self, username: str, password: str) -> None:
+=======
+    def loging_user_test(self, username, password):
+>>>>>>> 520291b2b15db9c48bf562f464a1c1b8761d8a3b
         logged_in = self.client.login(
             username=username,
             password=password
@@ -86,7 +113,11 @@ class NotesTests(APITestCase):
         current_user = get_user(self.client)
         self.assertEqual(current_user.username, username)
     
+<<<<<<< HEAD
     def test_create_note(self) -> None:
+=======
+    def test_create_note(self):
+>>>>>>> 520291b2b15db9c48bf562f464a1c1b8761d8a3b
         # Create base user and create note for testing association
         self.loging_user_test('testusername', 'testuserpass')
         self.check_post_request(
@@ -102,11 +133,19 @@ class NotesTests(APITestCase):
             'http://testserver/api/v1/notes/1/',
             'new ideas',
             'lorem ipsum',
+<<<<<<< HEAD
             'http://testserver/api/v1/auth/users/testusername/',
             id=0
         )
 
         # Create notes as admin user
+=======
+            'http://testserver/api/v1/auth/users/1/',
+            id=0
+        )
+
+        # Create new user for check links with notes
+>>>>>>> 520291b2b15db9c48bf562f464a1c1b8761d8a3b
         self.client.logout()
         self.loging_user_test('sudo_user', 'testsudopass')
 
@@ -123,6 +162,7 @@ class NotesTests(APITestCase):
             'http://testserver/api/v1/notes/2/',
             'Admin title',
             'Admin body',
+<<<<<<< HEAD
             'http://testserver/api/v1/auth/users/sudo_user/',
             id=1
         )
@@ -183,3 +223,8 @@ class NotesTests(APITestCase):
         self.check_delete_request('/api/v1/notes/1/')
         request = self.client.get('/api/v1/notes/1/')
         self.assertEqual(request.status_code, 404)
+=======
+            'http://testserver/api/v1/auth/users/2/',
+            id=1
+        )
+>>>>>>> 520291b2b15db9c48bf562f464a1c1b8761d8a3b
