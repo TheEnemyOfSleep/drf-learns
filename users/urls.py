@@ -8,5 +8,5 @@ router.register(r'groups', views.GroupViewSet)
 router.register(r'permissions', views.PermissionViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('auth/', include(router.urls)),
 ]
